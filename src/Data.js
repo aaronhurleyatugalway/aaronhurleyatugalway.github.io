@@ -40,5 +40,12 @@ let shopItemsData = [{
     price: 55,
     desc: "A cute blue dino who is squishy squish but forgot to offer a biscuit with tea",
     img: "images/bluedinomallow.jpg"
+},
+{
+    id: "mushroom",
+    name: "Mushroom Mallow",
+    price: 51,
+    desc: "A cute calm mushroom who is squishy squish but steals your netflix login",
+    img: "images/mushroommallow.jpg"
 }
 ]
