@@ -127,9 +127,10 @@
 		 		<legend>Shipping</legend>
 		 		
 		 		<div>
-		 			<label for="sname">Name</label>
-		 			<input type="text" name="sname" id="sname" data-type="string" data-message="This field cannot be empty" required/>
-		 		</div>
+		 			<label for="sname">Name<span id="sname-warning" class="form-warning">*required</span></label>
+		 			<input type="text" name="sname" id="sname" data-type="string" data-message="This field cannot be empty"/>
+					
+				</div>
 		 		<div>
 		 			<label for="semail">Email</label>
 		 			<input type="text" name="semail" id="semail" data-type="expression" data-message="Not a valid email address" />

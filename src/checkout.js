@@ -173,10 +173,17 @@ let formFields = (form) => {
     formOutput = JSON.parse(localStorage.getItem("formFields"))
 
     isFormValid = validateForm();
+
+    if (isFormValid) {
+        window.location.href = "order.html";
+    }
 }
 
 let validateForm = () => {
     for (const [key, value] of Object.entries(formOutput.billing)) {
+
+        returnValue = 1;
+
         if (value === "") {
             alert("Fill out all billing fields before submitting\n" + key + " is blank");
             return 0;
@@ -199,8 +206,6 @@ let validateForm = () => {
 
     return 1;
 }
-
-
 
 
 /* This calls the function formFields when submit is clicked */

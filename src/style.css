@@ -346,3 +346,10 @@ th {
 	margin: 1.5em 0;
 	text-align: right;
 }
+
+.form-warning{
+  color: red;
+  font-size: x-small;
+  text-align: start;
+  display: none;
+}
