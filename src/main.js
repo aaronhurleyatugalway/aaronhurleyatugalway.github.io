@@ -41,8 +41,6 @@ let increment = (div_with_id) => {
     let item_id = div_with_id.id;
     let search = basket.find((x) => x.id === item_id);
 
-    /*  number = Number(document.getElementById("cartAmount").innerHTML) + 1;
-        document.getElementById("cartAmount").innerHTML = number; */
     if (search === undefined) {
         basket.push({
             id: item_id,
