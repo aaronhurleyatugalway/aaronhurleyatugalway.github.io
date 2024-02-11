@@ -9,7 +9,8 @@
 </head>
 
 <body>
-
+	<div id="backdrop"></div>
+	<div id="modal_checkout"></div>
     <div class="navbar">
 		<h2><a href="index.html"><img src="images/locologo.jpg" width="160px"></h2></a>
 		
@@ -63,11 +64,11 @@
 		 		<legend>Billing</legend>
 		 		<div>
 		 			<label for="name">Name</label>
-		 			<input type="text" name="nname" id="nname" data-type="string" data-message="This field cannot be empty" />
+		 			<input type="text" name="nname" id="nname" data-type="string" data-message="This field cannot be empty" required/>
 		 		</div>
 		 		<div>
 		 			<label for="email">Email</label>
-		 			<input type="text" name="email" id="email" data-type="expression" data-message="Not a valid email address" />
+		 			<input type="text" name="email" id="email" data-type="expression" data-message="Not a valid email address" required/>
 		 		</div>
 		 		<div>
 		 			<label for="city">City</label>
@@ -127,28 +128,27 @@
 		 		<legend>Shipping</legend>
 		 		
 		 		<div>
-		 			<label for="sname">Name<span id="sname-warning" class="form-warning">*required</span></label>
-		 			<input type="text" name="sname" id="sname" data-type="string" data-message="This field cannot be empty"/>
-					
+					<label for="sname">Name &nbsp; <span id="sname-warning" class="form-warning">*required</span></label>
+		 			<input type="text" name="sname" id="sname" data-message="This field cannot be empty"/>
 				</div>
 		 		<div>
-		 			<label for="semail">Email</label>
-		 			<input type="text" name="semail" id="semail" data-type="expression" data-message="Not a valid email address" />
+					<label for="sname">Email &nbsp; <span id="semail-warning" class="form-warning">*required</span></label>
+		 			<input type="email" name="semail" id="semail" data-type="expression" required data-message="Not a valid email address" />
 		 		</div>
 		 		<div>
-		 			<label for="scity">City</label>
+		 			<label for="scity">City &nbsp; <span id="scity-warning" class="form-warning">*required</span></label>
 		 			<input type="text" name="scity" id="scity" data-type="string" data-message="This field cannot be empty" />
 		 		</div>
 		 		<div>
-		 			<label for="saddress">Address</label>
+		 			<label for="saddress">Address&nbsp; <span id="saddress-warning" class="form-warning">*required</span></label>
 		 			<input type="text" name="saddress" id="saddress" data-type="string" data-message="This field cannot be empty" />
 		 		</div>
 		 		<div>
-		 			<label for="szip">ZIP Code</label>
+		 			<label for="szip">ZIP Code&nbsp; <span id="szip-warning" class="form-warning">*required</span></label>
 		 			<input type="text" name="szip" id="szip" data-type="string" data-message="This field cannot be empty" />
 		 		</div>
 		 		<div>
-		 			<label for="scountry">Country</label>
+		 			<label for="scountry">Country&nbsp; <span id="scountry-warning" class="form-warning">*required</span></label>
 		 			<select  name="scountry" id="scountry" data-type="string" data-message="This field cannot be empty">
 		 			</select>
 		 		</div>

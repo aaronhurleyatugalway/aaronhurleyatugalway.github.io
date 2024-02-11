@@ -189,6 +189,7 @@ a{
 */
 
 
+
 form.add-to-cart div,
 form.add-to-cart p {
 	text-align: center;
@@ -353,3 +354,105 @@ th {
   text-align: start;
   display: none;
 }
+
+/* modal*/
+
+#backdrop {
+  display: none;
+  position: fixed;
+  background: rgba(0,0,0,0.5);
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+#modal_checkout {
+  display: none;
+  position: fixed;
+  background: white;
+  padding: 10px;
+  width: 300px;
+  top: 100px;
+  left: calc(50% - 140px);
+  z-index: 1;
+  text-align: center;
+  font-size: 20px;
+  border: pink 6px solid;
+}
+
+#modal_front {
+  display: none;
+  position: fixed;
+  background: white;
+  padding: 10px;
+  width: 400px;
+  top: 100px;
+  left: calc(50% - 140px);
+  z-index: 1;
+  text-align: center;
+  font-size: 20px;
+  border: #D6A0EB 10px solid;
+}
+
+/* For Photo Gallery */
+.numbertext {
+  color: #050507;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  background-color: rgb(216, 61, 146);
+  position: absolute;
+  top: 2px;
+  right: 10px;
+  border: 0;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  background-color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* previous and next buttons for photo gallery */
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: relative;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+

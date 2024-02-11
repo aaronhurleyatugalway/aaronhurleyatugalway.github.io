@@ -1,10 +1,4 @@
-[{
-    id: "cow",
-    name: "Cow Mallow",
-    price: 44,
-    desc: "A cute cow who is squishy squish but likes pineapple on pizza",
-    img: "images/cowmallow.jpg"
-},
+[
 {
     id: "deer",
     name: "Deer Mallow",

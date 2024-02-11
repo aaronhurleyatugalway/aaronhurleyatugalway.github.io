@@ -28,7 +28,7 @@ let shopItemsData = [{
     img: "images/axolotlmallow.jpg"
 },
 {
-    id: "froogmallow",
+    id: "froog",
     name: "Froog Mallow",
     price: 200,
     desc: "A cute froog who is squishy squish but will do arson and eat lollipops",
@@ -47,5 +47,12 @@ let shopItemsData = [{
     price: 51,
     desc: "A cute calm mushroom who is squishy squish but steals your netflix login",
     img: "images/mushroommallow.jpg"
+},
+{
+    id: "cow",
+    name: "Cow Mallow",
+    price: 44,
+    desc: "A cute cow who is squishy squish but likes pineapple on pizza",
+    img: "images/cowmallow.jpg"
 }
 ]

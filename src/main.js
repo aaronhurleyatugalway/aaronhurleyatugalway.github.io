@@ -10,10 +10,11 @@ let generateShop = () => {
     return (shop.innerHTML = shopItemsData
         .map((x) => {
             let { id, name, price, desc, img } = x; /* this avoids using x. when using variables below */
+            console.log(id);
             let search = basket.find((x) => x.id === id) || [];
             return `
         <div id=product-id-${id} class="item">
-                <img width="220" src=${img} alt="">
+                <img width="220" src=${img} onclick="showModal(${id}); currentSlide(1)" alt="">
                 <div class="details">
                     <h3>${name}</h3>
                     <p>${desc}</p>
@@ -107,3 +108,84 @@ let calculate = () => {
 
 /* run the calculate when page first appears or refreshes*/
 calculate();
+
+/* Modal Picture Gallery Code */
+
+var slideIndex = 1;
+
+/* Close the picture gallery */
+let closeModal = () => {
+    document.getElementById("modal_front").style.display = "none";
+    document.getElementById("backdrop").style.display = "none";
+}
+
+/*Show the picture gallery*/
+let showModal = (name) => {
+    let modal = document.getElementById("modal_front");
+    modal.style.display = "block";
+    document.getElementById("backdrop").style.display = "block";
+    modal.innerHTML = `
+      <span class="close cursor" onclick="closeModal()">&times;</span>
+      <br>
+      <div class="modal-content">
+
+        <div class="mySlides">
+          <div class="numbertext">1 / 4</div>
+          <img src="/images/${name.id}/image1.jpg" style="width:100%">
+        </div>
+    
+        <div class="mySlides">
+          <div class="numbertext">2 / 4</div>
+          <img src="/images/${name.id}/image2.jpg" style="width:100%">
+        </div>
+    
+        <div class="mySlides">
+          <div class="numbertext">3 / 4</div>
+          <img src="/images/${name.id}/image3.jpg" style="width:100%">
+        </div>
+        
+        <div class="mySlides">
+          <div class="numbertext">4 / 4</div>
+          <img src="/images/${name.id}/image4.jpg" style="width:100%">
+        </div>
+        <br>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      </div>`
+}
+
+
+/* switch slides +1 or -1 */
+let plusSlides = (n) => {
+  showSlides(slideIndex += n);
+}
+
+/* Show current slide - used for on loading modal */
+let currentSlide = (n) => {
+  showSlides(slideIndex = n);
+}
+
+/* function used for changing slides */
+/* it hides all slides, and then shows the one */
+let showSlides = (n) => {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+
+    /* Hide each slide, unless it's the one you want to show */
+    for (i = 0; i < slides.length; i++) {
+        if (i != slideIndex - 1){
+        slides.item(i).style.display = "none";
+        }
+        else {
+        slides.item(i).style.display = "block";  
+        }
+    }
+}
+
+
+
+

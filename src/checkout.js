@@ -3,6 +3,7 @@ let CheckoutRows = document.getElementById("checkout-cart-rows")
 let formOutput = JSON.parse(localStorage.getItem("formFields")) || [];
 
 
+
 /* Function to generate checkout items on the page */ 
 let generateCheckoutItems = () => {
     if (basket.length !== 0) {
@@ -170,36 +171,76 @@ let formFields = (form) => {
     /*see function above setting the form fields to local storage */
     setFormFields();
 
-    formOutput = JSON.parse(localStorage.getItem("formFields"))
+    formOutput = JSON.parse(localStorage.getItem("formFields")) // update the variables in formOutput, so to be used in validation 
 
-    isFormValid = validateForm();
+    isFormValid = validateForm(); // Go to a form validator
 
     if (isFormValid) {
+        basket = [];
+        formOutput = [];
         window.location.href = "order.html";
     }
 }
 
+let closeModal = () => {
+    let modal = document.getElementById("modal_checkout");
+    let backdrop = document.getElementById("backdrop");
+    modal.style.display = 'none';
+    backdrop.style.display = 'none';
+}
+
+let openModal = (message, modal, image) => {
+    modal.innerHTML = `<p>Input Warning! 
+    <button onclick="closeModal()" type="button" class="close"><span aria-hidden="true">&times;</span></button>
+    <br></p> 
+    <p><img width=100px src="/images/${image}"></p><br>
+    <p>${message}</p>`;
+    modal.style.display = 'block';
+    let backdrop = document.getElementById("backdrop");
+    backdrop.style.display = 'block';
+}
+
 let validateForm = () => {
+
+    if (basket.length === 0){
+        let modal = document.getElementById("modal_checkout");
+        modal.style.border = 'purple 6px solid';
+        openModal("You have no items in your basket", modal, "clownmallow.jpg");
+        return 0;
+    }
+
     for (const [key, value] of Object.entries(formOutput.billing)) {
 
-        returnValue = 1;
-
         if (value === "") {
-            alert("Fill out all billing fields before submitting\n" + key + " is blank");
+            let modal = document.getElementById("modal_checkout");
+            modal.style.border = 'pink 6px solid';
+            openModal("All <b>Billing</b> Fields Must Be Completed", modal, "billmallow.jpg");
             return 0;
         }
     }
 
+    isValid = 1;
+
     for (const [key, value] of Object.entries(formOutput.shipping)) {
+        document.getElementById("s" + key + "-warning").style.display = "none";
         if (value === "") {
-            alert("Fill out all shipping fields before submitting\n" + key + " is blank");
-            return 0;
+            let modal = document.getElementById("modal_checkout");
+            modal.style.border = 'cyan 6px solid';
+            document.getElementById("s" + key + "-warning").style.display = "inline-block";
+            openModal("All <b>Shipping</b> Fields Must Be Completed", modal, "sailormallow.jpg");
+            isValid = 0;
         }
+    }
+
+    if(!isValid){
+        return 0;
     }
 
     for (const [key, value] of Object.entries(formOutput.payment)) {
         if (value === "") {
-            alert("Fill out all payment fields before submitting\n" + key + " is blank");
+            let modal = document.getElementById("modal_checkout");
+            modal.style.border = 'green 6px solid';
+            openModal("All <b>Payment</b> Fields Must Be Completed", modal, "cashmallow.jpg");
             return 0;
         }
     }
