@@ -2,8 +2,6 @@ let shop = document.getElementById('shop');
 
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
-let current_gallery = [];
-
 /* https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/ */
 /* https://www.freecodecamp.org/news/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26/ */
 
@@ -35,18 +33,6 @@ let generateShop = () => {
 
 /* this is were the function is run to generate the shop items */
 generateShop();
-
-let setGallery = (name) => {
-    let search = shopItemsData.find((x) => x.id === name.id) || [];
-    let head = "images/" + search.id + "/";
-    let gallery = search.gallery;
-    let galleryimages = [];
-    gallery.forEach(element => {
-        galleryimages.push(head + element)
-    });
-    localStorage.setItem("gallery", JSON.stringify(galleryimages));    
-}
-
 
 /* this is called when a plus sign is pressed */
 let increment = (div_with_id) => {
