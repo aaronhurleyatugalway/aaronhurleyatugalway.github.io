@@ -1,16 +1,11 @@
-let basket = JSON.parse(localStorage.getItem("data")) || [];
 let formOutput = JSON.parse(localStorage.getItem("formFields")) || [];
 let confirmation = document.getElementById("confirmation");
-
-
 
 // reset the payment details to blank, and basket data to empty
 let resetFields = () => {
      for (const [key, value] of Object.entries(formOutput.payment)) {
          formOutput.payment[key] = "";
      }
-
-     basket = [];
      localStorage.setItem("formFields", JSON.stringify(formOutput));
      localStorage.setItem("data", JSON.stringify([]));
 }

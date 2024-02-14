@@ -1,5 +1,38 @@
-let billingcountries = document.getElementById("country")
-let shippingcountries = document.getElementById("scountry")
+let billingcountries = document.getElementById("country");
+let shippingcountries = document.getElementById("scountry");
+let months = document.getElementById("expmonth");
+
+let formPatterns = {
+    "ccnum": String.raw`\b\d{4}(| |-)\d{4}\1\d{4}\1\d{4}\b`,
+    "cvv": String.raw`^\d{3,4}$`
+};
+
+
+const text =`4111-1111-1111-1111`;
+
+
+let monthlist = `
+<option value="" disabled selected="selected">Select Month</option>
+<option value='January'>January</option>
+<option value='February'>February</option>
+<option value='March'>March</option>
+<option value='April'>April</option>
+<option value='May'>May</option>
+<option value='June'>June</option>
+<option value='July'>July</option>
+<option value='August'>August</option>
+<option value='September'>September</option>
+<option value='October'>October</option>
+<option value='November'>November</option>
+<option value='December'>December</option>`
+
+let this_year = new Date().getFullYear();
+let year_range = [...Array(11).keys()].map(i => i + this_year);
+
+let years = document.getElementById("expyear");
+
+years.innerHTML = `<option value="" disabled selected="selected">Select Year</option>` +
+                  year_range.map((x) => {return `<option value="${x}">${x}</option>`})
 
 let countrylist = `
         <option value="">country</option>
@@ -73,6 +106,7 @@ let countrylist = `
         <option value="GQ">Equatorial Guinea</option>
         <option value="ER">Eritrea</option>
         <option value="EE">Estonia</option>
+        <option value="SZ">Eswatini</option>
         <option value="ET">Ethiopia</option>
         <option value="FK">Falkland Islands (Malvinas)</option>
         <option value="FO">Faroe Islands</option>
@@ -219,7 +253,6 @@ let countrylist = `
         <option value="SD">Sudan</option>
         <option value="SR">Suriname</option>
         <option value="SJ">Svalbard and Jan Mayen</option>
-        <option value="SZ">Swaziland</option>
         <option value="SE">Sweden</option>
         <option value="CH">Switzerland</option>
         <option value="SY">Syrian Arab Republic</option>
@@ -259,3 +292,4 @@ let countrylist = `
 
 billingcountries.innerHTML = countrylist;
 shippingcountries.innerHTML = countrylist;
+months.innerHTML = monthlist;

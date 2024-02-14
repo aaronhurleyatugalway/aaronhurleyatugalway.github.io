@@ -2,8 +2,6 @@ let basket = JSON.parse(localStorage.getItem("data")) || [];
 let CheckoutRows = document.getElementById("checkout-cart-rows")
 let formOutput = JSON.parse(localStorage.getItem("formFields")) || [];
 
-
-
 /* Function to generate checkout items on the page */ 
 let generateCheckoutItems = () => {
     if (basket.length !== 0) {
@@ -202,6 +200,7 @@ let openModal = (message, modal, image) => {
 
 let validateForm = () => {
 
+
     if (basket.length === 0){
         let modal = document.getElementById("modal_checkout");
         modal.style.border = 'purple 6px solid';
@@ -219,10 +218,37 @@ let validateForm = () => {
         }
     }
 
+    
+    for (const [key, value] of Object.entries(formOutput.payment)) {
+        if(formPatterns[key]){
+            var re = RegExp(formPatterns[key]);
+            
+            if(!re.test(value)){
+                document.getElementById(key + "-warning").style.display = "inline-block";
+                let modal = document.getElementById("modal_checkout");
+                openModal("Credit Card Details are Invalid", modal, "cashmallow.jpg");
+                modal.style.border = 'green 6px solid';
+                return 0
+            }
+            else {
+                document.getElementById(key + "-warning").style.display = "none";
+            }
+        }
+
+        if (value === "") {
+            let modal = document.getElementById("modal_checkout");
+            modal.style.border = 'green 6px solid';
+            openModal("All <b>Payment</b> Fields Must Be Completed", modal, "cashmallow.jpg");
+            return 0;
+        }
+
+    }
+
     isValid = 1;
 
     for (const [key, value] of Object.entries(formOutput.shipping)) {
-        document.getElementById("s" + key + "-warning").style.display = "none";
+        document.getElementById
+        ("s" + key + "-warning").style.display = "none";
         if (value === "") {
             let modal = document.getElementById("modal_checkout");
             modal.style.border = 'cyan 6px solid';
@@ -236,15 +262,6 @@ let validateForm = () => {
         return 0;
     }
 
-    for (const [key, value] of Object.entries(formOutput.payment)) {
-        if (value === "") {
-            let modal = document.getElementById("modal_checkout");
-            modal.style.border = 'green 6px solid';
-            openModal("All <b>Payment</b> Fields Must Be Completed", modal, "cashmallow.jpg");
-            return 0;
-        }
-    }
-
     return 1;
 }
 
@@ -254,7 +271,6 @@ document.getElementById('submit-order').addEventListener("click", formFields);
 
 let clearForms = () => {
     localStorage.setItem("formFields", JSON.stringify([]));
-
     getFormFields();
 }
 

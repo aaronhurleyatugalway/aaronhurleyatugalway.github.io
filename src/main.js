@@ -2,6 +2,8 @@ let shop = document.getElementById('shop');
 
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
+let current_gallery = [];
+
 /* https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/ */
 /* https://www.freecodecamp.org/news/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26/ */
 
@@ -9,12 +11,11 @@ let basket = JSON.parse(localStorage.getItem("data")) || [];
 let generateShop = () => {
     return (shop.innerHTML = shopItemsData
         .map((x) => {
-            let { id, name, price, desc, img } = x; /* this avoids using x. when using variables below */
-            console.log(id);
+            let { id, name, price, desc, img} = x; /* this avoids using x. when using variables below */
             let search = basket.find((x) => x.id === id) || [];
             return `
         <div id=product-id-${id} class="item">
-                <img width="220" src=${img} onclick="showModal(${id}); currentSlide(1)" alt="">
+                <img width="220" src=${img} onclick="showModal(${id}); currentSlide(1);" alt="">
                 <div class="details">
                     <h3>${name}</h3>
                     <p>${desc}</p>
@@ -34,6 +35,17 @@ let generateShop = () => {
 
 /* this is were the function is run to generate the shop items */
 generateShop();
+
+let setGallery = (name) => {
+    let search = shopItemsData.find((x) => x.id === name.id) || [];
+    let head = "images/" + search.id + "/";
+    let gallery = search.gallery;
+    let galleryimages = [];
+    gallery.forEach(element => {
+        galleryimages.push(head + element)
+    });
+    localStorage.setItem("gallery", JSON.stringify(galleryimages));    
+}
 
 
 /* this is called when a plus sign is pressed */
@@ -124,35 +136,33 @@ let showModal = (name) => {
     let modal = document.getElementById("modal_front");
     modal.style.display = "block";
     document.getElementById("backdrop").style.display = "block";
-    modal.innerHTML = `
-      <span class="close cursor" onclick="closeModal()">&times;</span>
-      <br>
-      <div class="modal-content">
+  
+    //find the gallery list
+    let search = shopItemsData.find((x) => x.id === name.id) || [];
+    let gallery = search.gallery; //get the list of images
 
-        <div class="mySlides">
-          <div class="numbertext">1 / 4</div>
-          <img src="/images/${name.id}/image1.jpg" style="width:100%">
-        </div>
-    
-        <div class="mySlides">
-          <div class="numbertext">2 / 4</div>
-          <img src="/images/${name.id}/image2.jpg" style="width:100%">
-        </div>
-    
-        <div class="mySlides">
-          <div class="numbertext">3 / 4</div>
-          <img src="/images/${name.id}/image3.jpg" style="width:100%">
-        </div>
-        
-        <div class="mySlides">
-          <div class="numbertext">4 / 4</div>
-          <img src="/images/${name.id}/image4.jpg" style="width:100%">
-        </div>
-        <br>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    modal_header = `<span class="close cursor" onclick="closeModal()">&times;</span>
+    <br>
+    <div class="modal-content">`;
 
-      </div>`
+    modal_footer = ` <br>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>`;
+
+    let slideNumber = 0;
+    let numberOfSlides = gallery.length;
+
+    modal_center = gallery.map((x) => {
+        slideNumber++;
+        return ` 
+    <div class="mySlides">
+    <div class="numbertext">${slideNumber} / ${numberOfSlides}</div>
+    <img src="/images/${name.id}/${x}" style="width:100%">
+    </div>`;
+    }).join("");
+
+    modal.innerHTML = modal_header + modal_center + modal_footer;
 }
 
 
