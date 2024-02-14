@@ -64,27 +64,27 @@
 		 		<legend>Billing</legend>
 		 		<div>
 		 			<label for="name">Name</label>
-		 			<input type="text" name="nname" id="nname" data-type="string" data-message="This field cannot be empty" required/>
+		 			<input type="text" name="nname" id="nname" data-type="string">
 		 		</div>
 		 		<div>
 		 			<label for="email">Email</label>
-		 			<input type="text" name="email" id="email" data-type="expression" data-message="Not a valid email address" required/>
+		 			<input type="text" name="email" id="email" data-type="expression">
 		 		</div>
 		 		<div>
 		 			<label for="city">City</label>
-		 			<input type="text" name="city" id="city" data-type="string" data-message="This field cannot be empty" />
+		 			<input type="text" name="city" id="city" data-type="string">
 		 		</div>
 		 		<div>
 		 			<label for="address">Address</label>
-		 			<input type="text" name="address" id="address" data-type="string" data-message="This field cannot be empty" />
+		 			<input type="text" name="address" id="address" data-type="string">
 		 		</div>
 		 		<div>
 		 			<label for="zip">ZIP Code</label>
-		 			<input type="text" name="zip" id="zip" data-type="string" data-message="This field cannot be empty" />
+		 			<input type="text" name="zip" id="zip" data-type="string">
 		 		</div>
 		 		<div>
 		 			<label for="country">Country</label>
-		 			<select name="country" id="country" data-type="string" data-message="This field cannot be empty">
+		 			<select name="country" id="country" data-type="string">
 		 			</select>
 		 		</div>
 		 	</fieldset>
@@ -100,22 +100,22 @@
 				  <i class="fa fa-cc-mastercard" style="color:red;"></i>
 				  <i class="fa fa-cc-discover" style="color:orange;"></i>
 				</div>
-				<label for="cname">Name on Card</label>
+				<label for="cname">Name on Card<span id="cname-warning" class="form-warning"></span></label>
 				<input type="text" id="cname" name="cardname" placeholder="Yeti MacBoat">
-				<label for="ccnum">Credit card number<span id="ccnum-warning" class="form-warning">*invalid</span></label>
+				<label for="ccnum">Credit card number<span id="ccnum-warning" class="form-warning"></span></label>
 				<input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-				<label for="expmonth">Exp Month</label>
+				<label for="expmonth">Exp Month<span id="expmonth-warning" class="form-warning"></span></label>
 				<select  name="expmonth" id="expmonth" data-type="string" data-message="This field cannot be empty">
 				</select>
 	
 				<div class="row">
 				  <div class="col-50">
-					<label for="expyear">Exp Year</label>
+					<label for="expyear">Exp Year<span id="expyear-warning" class="form-warning"></span></label>
 					<select name="expyear" id="expyear" data-type="string" data-message="This field cannot be empty">
 					</select>
 				  </div>
 				  <div class="col-50">
-					<label for="cvv">CVV<span id="cvv-warning" class="form-warning">*invalid</span></label>
+					<label for="cvv">CVV<span id="cvv-warning" class="form-warning"></span></label>
 					<input type="number" id="cvv" name="cvv" pattern="\d{3}">
 				  </div>
 				</div>
@@ -130,27 +130,27 @@
 		 		<legend>Shipping</legend>
 		 		
 		 		<div>
-					<label for="sname">Name &nbsp; <span id="sname-warning" class="form-warning">*required</span></label>
+					<label for="sname">Name &nbsp; <span id="sname-warning" class="form-warning"></span></label>
 		 			<input type="text" name="sname" id="sname" data-message="This field cannot be empty"/>
 				</div>
 		 		<div>
-					<label for="sname">Email &nbsp; <span id="semail-warning" class="form-warning">*required</span></label>
+					<label for="sname">Email &nbsp; <span id="semail-warning" class="form-warning"></span></label>
 		 			<input type="email" name="semail" id="semail" data-type="expression" required data-message="Not a valid email address" />
 		 		</div>
 		 		<div>
-		 			<label for="scity">City &nbsp; <span id="scity-warning" class="form-warning">*required</span></label>
+		 			<label for="scity">City &nbsp; <span id="scity-warning" class="form-warning"></span></label>
 		 			<input type="text" name="scity" id="scity" data-type="string" data-message="This field cannot be empty" />
 		 		</div>
 		 		<div>
-		 			<label for="saddress">Address&nbsp; <span id="saddress-warning" class="form-warning">*required</span></label>
+		 			<label for="saddress">Address&nbsp; <span id="saddress-warning" class="form-warning"></span></label>
 		 			<input type="text" name="saddress" id="saddress" data-type="string" data-message="This field cannot be empty" />
 		 		</div>
 		 		<div>
-		 			<label for="szip">ZIP Code&nbsp; <span id="szip-warning" class="form-warning">*required</span></label>
+		 			<label for="szip">ZIP Code&nbsp; <span id="szip-warning" class="form-warning"></span></label>
 		 			<input type="text" name="szip" id="szip" data-type="string" data-message="This field cannot be empty" />
 		 		</div>
 		 		<div>
-		 			<label for="scountry">Country&nbsp; <span id="scountry-warning" class="form-warning">*required</span></label>
+		 			<label for="scountry">Country&nbsp; <span id="scountry-warning" class="form-warning"></span></label>
 		 			<select  name="scountry" id="scountry" data-type="string" data-message="This field cannot be empty">
 		 			</select>
 		 		</div>

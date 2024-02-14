@@ -198,6 +198,33 @@ let openModal = (message, modal, image) => {
     backdrop.style.display = 'block';
 }
 
+
+/* Function to check pattern, takes in value of input, name of id of span and the pattern */
+let checkPattern = (input_value, warningname, formPattern) => {
+
+        var re = RegExp(formPattern);
+
+        let keywarning = document.getElementById(warningname);
+        
+        /* If the input is invalid, then return a warning to screen */
+        if(!re.test(input_value)){
+            keywarning.innerHTML = "*invalid";
+            keywarning.style.display = "inline-block";
+
+            let modal = document.getElementById("modal_checkout");
+            modal.style.border = 'green 6px solid';
+
+            openModal("Credit Card Details are Invalid", modal, "cashmallow.jpg");
+            
+            return 0;
+        }
+        else {
+            keywarning.style.display = "none";
+            return 1;
+        }
+
+}
+
 let validateForm = () => {
 
 
@@ -208,6 +235,7 @@ let validateForm = () => {
         return 0;
     }
 
+    /* Check the billing part of the form */
     for (const [key, value] of Object.entries(formOutput.billing)) {
 
         if (value === "") {
@@ -219,20 +247,19 @@ let validateForm = () => {
     }
 
     
+    isValid = 1;
+
+    /* Check the payment part of the form */
     for (const [key, value] of Object.entries(formOutput.payment)) {
-        if(formPatterns[key]){
-            var re = RegExp(formPatterns[key]);
+        
+        if (formPatterns[key]) {
             
-            if(!re.test(value)){
-                document.getElementById(key + "-warning").style.display = "inline-block";
-                let modal = document.getElementById("modal_checkout");
-                openModal("Credit Card Details are Invalid", modal, "cashmallow.jpg");
-                modal.style.border = 'green 6px solid';
-                return 0
+            let isPatternGood = checkPattern(value, key + "-warning", formPatterns[key]);
+            
+            if (!isPatternGood) {
+                isValid = 0;
             }
-            else {
-                document.getElementById(key + "-warning").style.display = "none";
-            }
+
         }
 
         if (value === "") {
@@ -244,17 +271,30 @@ let validateForm = () => {
 
     }
 
+    /* Stops checking rest of form if invalid inputs in Payment */
+    if(!isValid){
+        return 0;
+    }
+
     isValid = 1;
 
+    /* Check the Shipping part of the form */
     for (const [key, value] of Object.entries(formOutput.shipping)) {
-        document.getElementById
-        ("s" + key + "-warning").style.display = "none";
+
+        let swarning = document.getElementById("s" + key + "-warning");
+
         if (value === "") {
             let modal = document.getElementById("modal_checkout");
             modal.style.border = 'cyan 6px solid';
-            document.getElementById("s" + key + "-warning").style.display = "inline-block";
+            
+            swarning.style.display = "inline-block";
+            swarning.innerHTML = "*required"; 
+            
             openModal("All <b>Shipping</b> Fields Must Be Completed", modal, "sailormallow.jpg");
             isValid = 0;
+        }
+        else {
+            swarning.style.display = "none";
         }
     }
 
