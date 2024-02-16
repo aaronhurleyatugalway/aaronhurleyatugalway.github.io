@@ -7,3 +7,9 @@ let calculate = () => {
 }
 
 calculate();
+
+let navbar2 = document.getElementById("navbar2");
+
+navbar2.innerHTML = `<h2><a href="index.html"><img src="images/locologo.jpg" width="160px"></h2></a>
+    <a href="shop.html" class="shoplink">SHOP <i class="bi bi-shop"></i></a>
+`

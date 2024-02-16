@@ -1,6 +1,12 @@
+body,
+html {
+    height: 100%;
+}
+
 .parallax {
     position: relative;
     height: 100%;
+    font: 400 25px/1.8 "Roboto", sans-serif;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -12,6 +18,7 @@
 
 .parallax.picture1 {
     background-image: url('../images/img_parallax1.jpg');
+    height:50%;
 }
 
 .parallax.picture2 {
@@ -24,21 +31,43 @@
 
 .parallax.picture4 {
     background-image: url('../images/img_parallax4.jpg');
+    height:50%;
 }
 
-body,
-html {
-    height: 100%;
-}
+/* current order is 3,4,1,2 */
+
 
 .navbar {
     margin-bottom: 0px;
 }
 
 .inscrollcontent {
-    background-color: rgb(255, 233, 246);
-    height: 300px;
-    font-size: 25px
+    color: rgb(249, 249, 249);
+    height: 175px;
+    text-align: center;
+    padding: 50px 80px;
+    text-align: justify;
+    font: 400 25px/1.8 "Courier New", sans-serif;
+}
+
+.inscrollcontent.one{
+    background-color: #F2AFEF;
+}
+
+.inscrollcontent.two{
+    background-color: #C499F3;
+}
+
+.inscrollcontent.three{
+    background-color: #7360DF;
+}
+
+.inscrollcontent.four{
+    background-color: #6a7cc5;
+}
+
+.inscrollcontent.five{
+    background-color: #317f8b;
 }
 
 .caption {
@@ -56,3 +85,5 @@ html {
     font-size: 25px;
     letter-spacing: 10px;
 }
+
+
