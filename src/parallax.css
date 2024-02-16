@@ -1,0 +1,58 @@
+.parallax {
+    position: relative;
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.parallax.picture1 {
+    background-image: url('../images/img_parallax1.jpg');
+}
+
+.parallax.picture2 {
+    background-image: url('../images/img_parallax2.jpg');
+}
+
+.parallax.picture3 {
+    background-image: url('../images/img_parallax3.jpg');
+}
+
+.parallax.picture4 {
+    background-image: url('../images/img_parallax4.jpg');
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.inscrollcontent {
+    background-color: rgb(255, 233, 246);
+    height: 300px;
+    font-size: 25px
+}
+
+.caption {
+    position: absolute;
+    left:0;
+    top:50%;
+    width: 100%;
+    text-align: center;
+}
+
+.caption span.border {
+    background-color: #455;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}

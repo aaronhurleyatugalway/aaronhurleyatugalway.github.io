@@ -15,7 +15,6 @@ i{
 
 a{
   text-decoration: none;
-  color: white;
 }
 
 .navbar {
@@ -28,7 +27,14 @@ a{
     margin-bottom: 30px;
 }
 
+.notindex{
+  position:relative;
+  height: 50px;
+  align-items: center;
+}
+
 .cart {
+  float: right;
     position: relative;
     background-color: #fff;
     color: #212529;
@@ -37,6 +43,20 @@ a{
     border-radius: 4px;
     height: 50px;
   }
+
+  .shoplink {
+    margin-top: 7px;
+    margin-right: 10px;
+    float: left;
+    position: static;
+    background-color: white;
+    color: #480943;
+    font-size: 22px;
+    padding: 5px;
+    border-radius: 7px;
+    height: 35px;
+  }
+
   
   .cartAmount {
     position: absolute;
