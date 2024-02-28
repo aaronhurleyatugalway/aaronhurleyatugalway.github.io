@@ -20,10 +20,12 @@ let generateShop = () => {
                     <div class="price-quantity">
                         <h2>€${price}</h2>
                     <div class="buttons">
-                        <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-                        <div id=${id} class="quantity">
-                        ${search.item === undefined ? 0 : search.item}</div>
-                        <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
+                    <div id=${id} class="quantity price-quantity" >
+                    ${search.item === undefined ? 0 : search.item}</div>
+                        <button class="cart-button remove" id="removefromcart${id}" type="button" onclick="decrement(${id})" style="display: none;"><i class="bi bi-cart2">&nbsp;</i>Remove</button>
+
+                    <button class="cart-button add" id="addtocart${id}" type="button" onclick="increment(${id})"><i class="bi bi-cart2">&nbsp;</i>Add</button>
+    
                     </div>
                     </div>
                 </div>
@@ -34,8 +36,29 @@ let generateShop = () => {
 /* this is were the function is run to generate the shop items */
 generateShop();
 
+let hideButtons = () => {
+    shopItemsData
+        .map((x) => {
+            let { id, name, price, desc, img} = x; /* this avoids using x. when using variables below */
+            let search = basket.find((x) => x.id === id) || [];
+            if (search.length === 0) {
+                document.getElementById("addtocart"+id).style.display = "block";
+                document.getElementById("removefromcart"+id).style.display = "none";
+            }   
+            else {
+                document.getElementById("addtocart"+id).style.display = "none";
+                document.getElementById("removefromcart"+id).style.display = "block";
+            } 
+
+        })
+
+};
+
+hideButtons();
+
 /* this is called when a plus sign is pressed */
 let increment = (div_with_id) => {
+    
 
     let item_id = div_with_id.id;
     let search = basket.find((x) => x.id === item_id);
@@ -53,6 +76,8 @@ let increment = (div_with_id) => {
     update(item_id);
 
     localStorage.setItem("data", JSON.stringify(basket));
+    document.getElementById("addtocart"+item_id).style.display = "none";
+    document.getElementById("removefromcart"+item_id).style.display = "block";
 }
 
 
@@ -66,7 +91,7 @@ let decrement = (div_with_id) => {
     if (search === undefined) return;
     else if (search.item === 0) return;
     else {
-        if (search.item > 0) { search.item -= 1 };
+        if (search.item > 0) { search.item = 0 };
     }
 
     update(item_id);
@@ -76,6 +101,8 @@ let decrement = (div_with_id) => {
 
     /*put the basket into local storage, to be available on refresh*/
     localStorage.setItem("data", JSON.stringify(basket));
+    document.getElementById("removefromcart"+item_id).style.display = "none";
+    document.getElementById("addtocart"+item_id).style.display = "block";
 }
 
 
