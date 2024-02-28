@@ -6,6 +6,7 @@ html {
 .parallax {
     position: relative;
     height: 100%;
+    max-width: 100%;
     font: 400 25px/1.8 "Roboto", sans-serif;
 
     /* Create the parallax scrolling effect */
