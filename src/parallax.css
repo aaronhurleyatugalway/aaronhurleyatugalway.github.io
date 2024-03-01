@@ -6,7 +6,7 @@ html {
 .parallax {
     position: relative;
     height: 100%;
-    max-width: 100%;
+    width: 100%;
     font: 400 25px/1.8 "Roboto", sans-serif;
 
     /* Create the parallax scrolling effect */
@@ -87,4 +87,38 @@ html {
     letter-spacing: 10px;
 }
 
+@media only screen and (max-width: 500px){
 
+    .inscrollcontent {
+        height: 100px;
+        padding: 20px 40px;
+        font: 100 15px/1.8 "Courier New", sans-serif;
+    }
+
+    .parallax {
+        font: 100 15px/1.8 "Roboto", sans-serif;
+
+    }
+
+    .caption span.border {
+        padding: 10px;
+        font-size: 15px;
+        letter-spacing: 7px;
+    }
+  
+}
+
+@media only screen and (max-width: 300px){
+
+    .inscrollcontent {
+        height: 80px;
+        padding: 20px 40px;
+        font: 100 10px/1.8 "Courier New", sans-serif;
+    }
+
+    .parallax {
+        font: 200 10px/1.8 "Roboto", sans-serif;
+
+    }
+  
+}

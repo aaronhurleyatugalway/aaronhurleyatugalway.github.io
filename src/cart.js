@@ -19,19 +19,19 @@ let generateCartItems = () => {
             let search = shopItemsData.find((y)=>y.id === id) || [];
             return `
             <div class="cart-item">
-            <img width="100" src="${search.img}">
-                <div class = "details">
+            <img width="100" height="100" src="${search.img}">
+                <div class = "details mycart">
                    <div class="title-price-x">
                         <h4 class="title-price">
                         <p>${search.name}</p>
                         <p class="cart-item-price">€${search.price}</p>
-                        </h4>
-                        <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
+                        
+                        <i onclick="removeItem(${id})" class="bi bi-x-lg"></i></h4>
                    </div>
 
                    <div class="buttons">
                         <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
-                        <div id=${id} class="quantity">${item}</div>
+                        <div id=${id} class="quantity onmycart">${item}</div>
                         <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                    </div>
 
@@ -45,8 +45,8 @@ let generateCartItems = () => {
         ShoppingCart.innerHTML = ``;
         label.innerHTML = `
         <h2>Cart is Empty</h2>
-        <a href="index.html">
-        <button class="HomeBtn">Back to home</button>
+        <a href="shop.html">
+        <button class="HomeBtn">Back to Shop</button>
         </a>
         `;
     }

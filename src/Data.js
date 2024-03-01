@@ -19,7 +19,7 @@ let shopItemsData = [{
     id: "cat",
     name: "Cat Mallow",
     price: 35,
-    desc: "A cute calm cat who is squishy squish but reads your diary",
+    desc: "A cute calm cat who is squishy squish but reads your diary while you sleep",
     img: "images/catmallow.jpg",
     gallery: ["image2.jpg","image3.jpg", "image4.jpg"]
 },

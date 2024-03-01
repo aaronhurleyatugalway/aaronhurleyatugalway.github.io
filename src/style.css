@@ -114,6 +114,13 @@ a{
     flex-direction: column;
     padding: 10px;
     gap:10px;
+    font-size: 15px;
+  }
+
+
+  .details.mycart{
+    font-size:10px;
+    gap:5px;
   }
 
   .price-quantity{
@@ -169,7 +176,7 @@ a{
 
   .shopping-cart{
     display: grid;
-    grid-template-columns: repeat(1, 320px);
+    grid-template-columns: repeat(1,275px);
     justify-content: center;
     gap: 15px;
   }
@@ -188,7 +195,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 195px;
+    width: 250px;
   }
 
   .title-price{
@@ -504,8 +511,6 @@ background: #2dc56f;
   background: #c52d2d;
 }
 
-
- 
 .quantity{
   text-align: center;
   padding: 10px;
@@ -513,5 +518,80 @@ background: #2dc56f;
   color: white;
   width: auto;
 }
+
+.quantity.onmycart{
+  padding:2px;
+}
+
+@media only screen and (max-width: 500px){
+  .cart {
+      font-size: 20px;
+      padding: 2px;
+      border-radius: 2px;
+      padding: 3px;
+      height: 30px;
+    }
+
+    .cart-button {
+      min-width: none;
+    }
+
+    .shoplink {
+      margin-top: 3px;
+      margin-right: 0px;
+      float:left;
+      position: static;
+      background-color: white;
+      color: #480943;
+      font-size: 15px;
+      padding: 3px;
+      border-radius: 5px;
+      height: 25px;
+    }
+
+
+    #modal_front {
+      width: 300px;
+      top: 50px;
+    }
+
+}
+
+
+@media only screen and (max-width: 300px){
+#logoimage2{
+  display:none;
+}
+
+#logoimage1{
+  display:none;
+}
+
+
+.notindex{
+  position:absolute;
+  height: 30px;
+  align-items: right;
+}
+
+#modal_front {
+  width: 250px;
+  top: 50px;
+}
+
+.shopping-cart{
+  display: grid;
+  grid-template-columns: repeat(1, 280px);
+  justify-content:flex-start;
+  gap: 10px;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+
+}
+
 
 
