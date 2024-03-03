@@ -1,0 +1,207 @@
+// CSS Reset
+* {
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+body{
+    background-image: url("../images/img_parallax3.jpg");
+    font-family: sans-serif;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.top {
+    --overlay: 0.0; /* Control for dark background on top of background image */
+  
+    width: 50vw;
+    height: 80vh;
+  
+    /* Background image with a dark overlay on top */
+    background: linear-gradient(
+        rgba(0, 0, 0, var(--overlay)),
+        rgba(0, 0, 0, var(--overlay))
+      ),
+      url("../images/img_parallax1.jpg");
+    
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position-x: center; 
+    background-position-y: -10px; 
+    
+    /* Vertically center text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    /* Text Styling */
+    h1 {
+      position: fixed;
+      padding: 0 30px;
+      text-align: center;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 40px;
+      color: white;
+      z-index: 0;
+    }
+    
+    @media all and (max-width: 450px) {
+      background-position-y: 0;
+    }
+  }
+  
+  .middle {
+    --overlay: 0.0; /* Control for dark background on top of background image */
+  
+    width: 50vw;
+    height: 80vh;
+  
+        /* Background image with a dark overlay on top */
+        background: linear-gradient(
+            rgba(0, 0, 0, var(--overlay)),
+            rgba(0, 0, 0, var(--overlay))
+          ),
+          url("../images/img_parallax3.jpg");
+
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position-x: center; 
+    background-position-y: -10px; 
+    
+    /* Vertically center text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    /* Text Styling */
+    h1 {
+      position: relative;
+      padding: 0 30px;
+      text-align: center;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 40px;
+      color: white;
+      z-index: 0;
+    }
+    
+    @media all and (max-width: 450px) {
+      background-position-y: 0;
+    }
+  }
+  
+  
+  .bottom {
+    --overlay: 0.0; /* Control for dark background on top of background image */
+  
+    z-index: -1;
+    width: 50vw;
+    height: 60vh;
+  
+        /* Background image with a dark overlay on top */
+        background: linear-gradient(
+            rgba(0, 0, 0, var(--overlay)),
+            rgba(0, 0, 0, var(--overlay))
+          ),
+          url("../images/img_parallax4.jpg");
+
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position-x: center; 
+    background-position-y: -10px; 
+    
+    /* Vertically center text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    /* Text Styling */
+    h1 {
+      position: relative;
+      padding: 0 30px;
+      text-align: center;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 40px;
+      color: white;
+      z-index: 0;
+    }
+    
+    @media all and (max-width: 450px) {
+      background-position-y: 0;
+    }
+  }
+
+
+  .last {
+    --overlay: 0.0; /* Control for dark background on top of background image */
+  
+    z-index: -1;
+    width: 50vw;
+    height: 50vh;
+  
+        /* Background image with a dark overlay on top */
+        background: linear-gradient(
+            rgba(0, 0, 0, var(--overlay)),
+            rgba(0, 0, 0, var(--overlay))
+          ),
+          url("../images/img_parallax5.jpg");
+
+    background-attachment: fixed; 
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position-x: center; 
+    background-position-y: -10px; 
+    
+    /* Vertically center text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    /* Text Styling */
+    h1 {
+      position: relative;
+      padding: 0 30px;
+      text-align: center;
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: 40px;
+      color: black;
+      z-index: 00;
+    }
+    
+    @media all and (max-width: 450px) {
+      background-position-y: 0;
+    }
+  }
+
+
+  .modal_story {
+    display: block;
+    position: relative;
+    background: black;
+    color: white;
+    padding: 10px;
+    width: 70vh;
+    right: 0px;
+    z-index: 1;
+    text-justify: newspaper;
+    font-size: 20px;
+    font-family: "Lucida Console",  monospace;
+    border: white 5px solid;
+  }
+
+  .modal_now{
+    position: absolute;
+    right:10px;
+  }
+
+
+  
