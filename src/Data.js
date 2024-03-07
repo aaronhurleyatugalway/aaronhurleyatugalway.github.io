@@ -62,5 +62,13 @@ let shopItemsData = [{
     desc: "A cute cow who is squishy squish but likes pineapple on pizza",
     img: "images/cowmallow.jpg",
     gallery: ["image1.jpg","image2.jpg","image3.jpg", "image4.jpg"]
+},
+{
+    id: "deer",
+    name: "Deer Mallow",
+    price: 37,
+    desc: "A cute deer who is squishy squish but is tired after christmas",
+    img: "images/deermallow.jpg",
+    gallery: []
 }
 ]
